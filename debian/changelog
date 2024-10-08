@@ -1,5 +1,140 @@
-template-repository (1.0-1) unstable; urgency=medium
+golang-github-openshift-imagebuilder (1.2.14+ds1-2) unstable; urgency=medium
 
-  * Initial release
+  * Upload to unstable
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Reinhard Tartler <siretart@tauware.de>  Sat, 17 Aug 2024 07:28:08 -0400
+
+golang-github-openshift-imagebuilder (1.2.14+ds1-1) experimental; urgency=medium
+
+  * New upstream release
+
+ -- Reinhard Tartler <siretart@tauware.de>  Wed, 07 Aug 2024 06:47:50 -0400
+
+golang-github-openshift-imagebuilder (1.2.11+ds1-2) unstable; urgency=medium
+
+  * Team upload
+  * Upload changes from experimental to unstable
+  * d/control:
+    - Update Standards-Version to 4.7.0 (no changes needed)
+    - Update debhelper-compat to v13
+    - Set consistent version requirement of golang-github-docker-docker-dev
+
+ -- Mathias Gibbens <gibmat@debian.org>  Fri, 26 Jul 2024 09:03:17 +0000
+
+golang-github-openshift-imagebuilder (1.2.11+ds1-1) experimental; urgency=medium
+
+  * New upstream release
+  * enables HEREDOC support
+
+ -- Reinhard Tartler <siretart@tauware.de>  Wed, 10 Jul 2024 21:50:40 -0400
+
+golang-github-openshift-imagebuilder (1.2.5+ds1-4) experimental; urgency=medium
+
+  * Add upstream patch https://github.com/openshift/imagebuilder/pull/272/files
+  * refresh patches
+  * Fix ftbfs with Docker 26.1
+  * adjust dependencies for packages in experimental
+
+ -- Reinhard Tartler <siretart@tauware.de>  Sun, 07 Jul 2024 07:46:13 -0400
+
+golang-github-openshift-imagebuilder (1.2.5+ds1-3) unstable; urgency=medium
+
+  * Upload to unstable
+
+ -- Reinhard Tartler <siretart@tauware.de>  Sat, 09 Sep 2023 11:15:34 -0400
+
+golang-github-openshift-imagebuilder (1.2.5+ds1-2) experimental; urgency=medium
+
+  * fix FTBFS on ARM archs, disable broken test
+
+ -- Reinhard Tartler <siretart@tauware.de>  Sat, 02 Sep 2023 21:07:09 -0400
+
+golang-github-openshift-imagebuilder (1.2.5+ds1-1) experimental; urgency=medium
+
+  * New upstream version
+  * Add lintian overrides for funny test data
+  * Bump standards version
+  * Tighten dependency on containers/storage
+
+ -- Reinhard Tartler <siretart@tauware.de>  Sat, 02 Sep 2023 08:38:00 -0400
+
+golang-github-openshift-imagebuilder (1.2.3+ds1-2) unstable; urgency=medium
+
+  * Bug fix: "golang-github-openshift-imagebuilder FTBFS due to unlisted
+    dependency", thanks to William Wilson (Closes: #1014183).
+
+ -- Reinhard Tartler <siretart@tauware.de>  Sun, 10 Jul 2022 07:11:52 -0400
+
+golang-github-openshift-imagebuilder (1.2.3+ds1-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Reinhard Tartler <siretart@tauware.de>  Wed, 18 May 2022 22:04:00 -0400
+
+golang-github-openshift-imagebuilder (1.2.1+ds1-3) unstable; urgency=medium
+
+  * Upload to unstable
+  * Bug fix: "Typo in package description", thanks to George B. (Closes:
+    #947240).
+
+ -- Reinhard Tartler <siretart@tauware.de>  Sun, 29 Aug 2021 11:02:07 +0200
+
+golang-github-openshift-imagebuilder (1.2.1+ds1-2) experimental; urgency=medium
+
+  * Depend explicitly on golang-github-opencontainers-image-spec-dev
+
+ -- Reinhard Tartler <siretart@tauware.de>  Sat, 12 Jun 2021 07:15:07 -0400
+
+golang-github-openshift-imagebuilder (1.2.1+ds1-1) experimental; urgency=medium
+
+  * New upstream release
+  * Backport upstream patch: Add mounts to dispatch run
+
+ -- Reinhard Tartler <siretart@tauware.de>  Mon, 07 Jun 2021 17:50:25 -0400
+
+golang-github-openshift-imagebuilder (1.2.0+ds1-1) experimental; urgency=medium
+
+  * New upstream release
+  * Bump debhelper from old 11 to 12.
+  * Set debhelper-compat version in Build-Depends.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+
+ -- Reinhard Tartler <siretart@tauware.de>  Fri, 02 Apr 2021 21:14:04 -0400
+
+golang-github-openshift-imagebuilder (1.1.6-2) unstable; urgency=medium
+
+  * debian/control: depend on golang-github-containerd-containerd-dev
+
+ -- Reinhard Tartler <siretart@tauware.de>  Fri, 24 Jul 2020 07:20:05 -0400
+
+golang-github-openshift-imagebuilder (1.1.6-1) unstable; urgency=medium
+
+  * New upstream version 1.1.6
+
+ -- Reinhard Tartler <siretart@tauware.de>  Sat, 11 Jul 2020 11:57:26 -0400
+
+golang-github-openshift-imagebuilder (1.1.4-2) unstable; urgency=medium
+
+  * Fix FTBFS on arm platforms (Closes: #959538)
+
+ -- Reinhard Tartler <siretart@tauware.de>  Tue, 19 May 2020 06:51:27 -0400
+
+golang-github-openshift-imagebuilder (1.1.4-1) unstable; urgency=medium
+
+  * New upstream version 1.1.4
+  * vendor k8s.io/klog
+
+ -- Reinhard Tartler <siretart@tauware.de>  Sun, 26 Apr 2020 13:52:45 -0400
+
+golang-github-openshift-imagebuilder (1.1.0-2) unstable; urgency=medium
+
+  * Upload to unstable
+
+ -- Reinhard Tartler <siretart@tauware.de>  Sat, 19 Oct 2019 11:17:37 -0400
+
+golang-github-openshift-imagebuilder (1.1.0-1) experimental; urgency=medium
+
+  * Initial release (Closes: #923300)
+
+ -- Reinhard Tartler <siretart@tauware.de>  Wed, 10 Apr 2019 21:27:11 -0400

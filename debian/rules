@@ -1,4 +1,13 @@
 #!/usr/bin/make -f
 
+# install all files for dockerfile/parser to pickup the various testfiles
+# Ideally, upstream would move all test files out to 'testdata/', which seems
+# to be a common best-practice in many other golang projects, and
+# detected automatically by the golang debhelper
+export DH_GOLANG_INSTALL_EXTRA := dockerfile/parser
+
+# avoid installing test utility
+export DH_GOLANG_EXCLUDES := dumper
+
 %:
-	dh $@
+	dh $@ --buildsystem=golang --with=golang

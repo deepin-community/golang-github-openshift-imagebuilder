@@ -1,15 +1,77 @@
-Source: template-repository
-Section: unknown
+Source: golang-github-openshift-imagebuilder
+Section: devel
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Debian Go Packaging Team <team+pkg-go@tracker.debian.org>
+Uploaders: Reinhard Tartler <siretart@tauware.de>
+Build-Depends: debhelper-compat (= 13),
+               dh-golang,
+               golang-any,
+               golang-github-containerd-containerd-dev,
+               golang-github-containers-storage-dev,
+               golang-github-docker-distribution-dev,
+               golang-github-docker-docker-dev (>= 26.1.4+dfsg1-6),
+               golang-github-fsouza-go-dockerclient-dev (>= 1.11),
+               golang-github-opencontainers-image-spec-dev,
+               golang-github-ulikunitz-xz-dev,
+               golang-glog-dev,
+               golang-google-genproto-dev (>> 0.0~git20210726),
+               golang-google-grpc-dev (>> 1.64),
+Standards-Version: 4.7.0
+Homepage: https://github.com/openshift/imagebuilder
+Vcs-Browser: https://salsa.debian.org/go-team/packages/golang-github-openshift-imagebuilder
+Vcs-Git: https://salsa.debian.org/go-team/packages/golang-github-openshift-imagebuilder.git
+XS-Go-Import-Path: github.com/openshift/imagebuilder
+Testsuite: autopkgtest-pkg-go
 
-Package: template-repository
+Package: openshift-imagebuilder
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Built-Using: ${misc:Built-Using}
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Description: Builds container images using Dockerfile as input
+ This package supports using the Dockerfile syntax to build OCI & Docker
+ compatible images, without invoking a container build command such
+ as buildah bud or docker build. It is intended to give clients more
+ control over how they build container images, including:
+  - Instead of building one layer per line, run all instructions in the
+    same container
+  - Set HostConfig settings like network and memory controls that are
+    not available when running container builds
+  - Mount external files into the build that are not persisted as part
+    of the final image (i.e. "secrets")
+  - If there are no RUN commands in the Dockerfile, the container is
+    created and committed, but never started.  The final image should be
+    99.9% compatible with regular container builds, but bugs are always
+    possible.
+ .
+ This package provides the imagebuilder command-line utility.
+
+Package: golang-github-openshift-imagebuilder-dev
+Architecture: all
+Depends: ${misc:Depends},
+         golang-github-containerd-containerd-dev,
+         golang-github-containers-storage-dev,
+         golang-github-docker-distribution-dev,
+         golang-github-docker-docker-dev (>= 26.1.4+dfsg1-6),
+         golang-github-fsouza-go-dockerclient-dev (>= 1.11),
+         golang-github-opencontainers-image-spec-dev,
+         golang-github-ulikunitz-xz-dev,
+         golang-glog-dev
+Description: Builds container images using Dockerfile as input
+ This library supports using the Dockerfile syntax to build OCI & Docker
+ compatible images, without invoking a container build command such
+ as buildah bud or docker build. It is intended to give clients more
+ control over how they build container images, including:
+  - Instead of building one layer per line, run all instructions in the
+    same container
+  - Set HostConfig settings like network and memory controls that are
+    not available when running container builds
+  - Mount external files into the build that are not persisted as part
+    of the final image (i.e. "secrets")
+  - If there are no RUN commands in the Dockerfile, the container is
+    created and committed, but never started.  The final image should be
+    99.9% compatible with regular container builds, but bugs are always
+    possible.
+ .
+ This package provides sources that other package may require for
+ building.
