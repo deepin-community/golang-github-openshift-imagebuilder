@@ -1,0 +1,2 @@
+# contains testdata that is not really an .a archive
+golang-github-openshift-imagebuilder source: unpack-message-for-orig
