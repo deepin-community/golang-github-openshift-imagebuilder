@@ -1,0 +1,43 @@
+From: Reinhard Tartler <siretart@tauware.de>
+Date: Mon, 11 Nov 2024 13:16:52 -0500
+Subject: Build against buildkit 0.12.5
+
+---
+ dispatchers.go | 3 +--
+ go.mod         | 2 +-
+ 2 files changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/dispatchers.go b/dispatchers.go
+index 2a4f454..4071523 100644
+--- a/dispatchers.go
++++ b/dispatchers.go
+@@ -21,7 +21,6 @@ import (
+ 	"github.com/containerd/errdefs"
+ 	"github.com/containerd/platforms"
+ 	"github.com/containers/storage/pkg/regexp"
+-	"github.com/openshift/imagebuilder/internal"
+ 	"github.com/openshift/imagebuilder/signal"
+ 	"github.com/openshift/imagebuilder/strslice"
+ 
+@@ -144,7 +143,7 @@ func processHereDocs(instruction, originalInstruction string, heredocs []buildki
+ 			shlex := buildkitshell.NewLex('\\')
+ 			shlex.RawQuotes = true
+ 			shlex.RawEscapes = true
+-			content, _, err = shlex.ProcessWord(content, internal.EnvironmentSlice(args))
++			content, err = shlex.ProcessWord(content, args)
+ 			if err != nil {
+ 				return nil, err
+ 			}
+diff --git a/go.mod b/go.mod
+index 00a08cc..d7ba0ad 100644
+--- a/go.mod
++++ b/go.mod
+@@ -9,7 +9,7 @@ require (
+ 	github.com/distribution/reference v0.6.0
+ 	github.com/docker/docker v27.1.1+incompatible
+ 	github.com/fsouza/go-dockerclient v1.11.2
+-	github.com/moby/buildkit v0.15.1
++	github.com/moby/buildkit v0.12.5
+ 	github.com/stretchr/testify v1.9.0
+ 	k8s.io/klog v1.0.0
+ )
