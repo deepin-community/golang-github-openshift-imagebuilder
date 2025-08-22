@@ -1,2 +1,3 @@
 ftbfs-arm.patch
 klog.patch
+0002-Build-against-buildkit-0.12.5.patch
